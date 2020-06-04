@@ -24,7 +24,7 @@
     
     <filters>
         <filter>
-            <script>/scripts/filters/oauth.groovy</script>
+            <script>/scripts/filters/OAuth.groovy</script>
             <mapping>
                 <include>/**</include>
             </mapping>
