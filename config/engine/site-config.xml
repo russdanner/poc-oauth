@@ -21,4 +21,13 @@
 
 <site>
     <version>2</version>
+    
+    <filters>
+        <filter>
+            <script>/scripts/filters/oauth.groovy</script>
+            <mapping>
+                <include>/**</include>
+            </mapping>
+        </filter>
+    </filters>
 </site>
