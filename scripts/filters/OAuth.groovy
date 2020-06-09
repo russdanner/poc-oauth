@@ -1,10 +1,17 @@
-@Grab(group='org.pac4j', module='pac4j-oauth', version='4.0.2')
+import org.craftercms.oauth.CrafterOAuth
 
-//import org.craftercms.oauth.CrafterOAuth
-import org.pac4j.core.util.FindBest
+def requestURI = request.getRequestURL()
 
-logger.info("before")
-
-filterChain.doFilter(request, response)
-
-logger.info("after")
+if("/callback".equals(requestURI)) {
+    // if callback
+    CrafterOAuth.doCallbackFilter(request, response, session, filterChain)
+}
+else if("/logout".equals(requestURI)) {
+    // if logout
+    CrafterOAuth.doLogoutFilter(request, response, session, filterChain)
+}
+else {
+    // otherwise (filter any request passed our way)
+    CrafterOAuth.doSecurityFilter(request, response, session, filterChain)
+}
+        
