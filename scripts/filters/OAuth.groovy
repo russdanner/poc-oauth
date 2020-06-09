@@ -1,5 +1,3 @@
-@Grab(group='io.corbel', module='oauth-filter-api', version='1.44.0')
-
 import io.corbel.lib.token.TokenGrant
 import io.corbel.lib.token.TokenInfo
 import io.corbel.lib.token.factory.TokenFactory
@@ -16,6 +14,8 @@ import io.corbel.oauth.session.SessionBuilder
 import io.corbel.oauth.session.SessionCookieFactory
 import io.corbel.oauth.token.TokenExpireTime
 import io.dropwizard.testing.junit.ResourceTestRule
+
+@Grab(group='io.corbel', module='oauth-filter-api', version='1.44.0')
 
 
 logger.info("before")
