@@ -3,8 +3,7 @@ import org.craftercms.oauth.CrafterOAuth
 def requestURI = request.getRequestURL()
 def oauth = new CrafterOAuth() // for now
 
-filterChain.doFilter(request, response)
-/*
+
 if("/callback".equals(requestURI)) {
     // if callback
     oauth.doCallbackFilter(request, response, session, filterChain)
@@ -17,4 +16,3 @@ else {
     // otherwise (filter any request passed our way)
     oauth.doSecurityFilter(request, response, session, filterChain)
 }
-*/       
