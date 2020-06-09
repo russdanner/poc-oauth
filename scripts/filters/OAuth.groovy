@@ -1,8 +1,4 @@
-// https://mvnrepository.com/artifact/se.curity/oauth-filter
-@Grapes(
-    @Grab(group='se.curity', module='oauth-filter', version='2.0.0')
-)
-
+import org.craftercms.oauth.CrafterOAuth
 
 logger.info("before")
 
