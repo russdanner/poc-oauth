@@ -1,4 +1,4 @@
-@Grab(group='se.curity', module='oauth-filter', version='2.0.0')
+@Grab(group='se.curity', module='oauth-filter', version='2.0.0', initClass=false)
 
 logger.info("before")
 
