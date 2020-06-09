@@ -5,7 +5,7 @@ package org.craftercms.oauth
 
 public class CrafterOAuth {
     
-    public doSecurityFilter(request, response, session) {
+    public doSecurityFilter(request, response, session, filterChain) {
         
     /*    
         // wrap the request so it's pac4j aware
@@ -29,11 +29,11 @@ public class CrafterOAuth {
     
     }
     
-    public doCallbackFilter(request, response, session) {
+    public doCallbackFilter(request, response, session, filterChain) {
         
     }
     
-    public doLogoutFilter(request, response, session) {
+    public doLogoutFilter(request, response, session, filterChain) {
         
     }
 }
