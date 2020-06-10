@@ -35,7 +35,7 @@ public class CrafterOAuth {
         Boolean multiProfile = false
 
         Config config = OAuth20Configuration()
-               config.setKey("A_KEY") {
+               config.setKey("A_KEY") 
                config.getSecret("A_SECRET")
         
         //new Config("http://localhost:8080", "", final Map<String, Authorizer> authorizers)
