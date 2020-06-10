@@ -43,7 +43,8 @@ public class CrafterOAuth {
 
         // perform(C context, Config config, SecurityGrantedAccessAdapter<R,C> securityGrantedAccessAdapter, HttpActionAdapter<R,C> httpActionAdapter, String clients, String authorizers, String matchers, Boolean inputMultiProfile, Object... parameters)
         def securityGrantedAccessAdapter = new SecurityGrantedAccessAdapter() {
-            def adapt(authContext, profiles, parameters)  throws Exception {
+            public Object adapt(authContext, profiles, parameters)  
+            throws Exception {
                 //filterChain.doFilter(profiles.isEmpty() ? request : new Pac4JHttpServletRequestWrapper(request, profiles), response);
                 filterChain.doFilter(new Pac4JHttpServletRequestWrapper(request, profiles), response)
                 return null;
