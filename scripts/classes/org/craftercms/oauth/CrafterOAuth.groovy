@@ -15,6 +15,7 @@ import org.pac4j.core.http.adapter.JEEHttpActionAdapter
 import org.pac4j.core.util.FindBest
 import org.pac4j.core.engine.SecurityGrantedAccessAdapter
 import org.pac4j.j2e.util.Pac4JHttpServletRequestWrapper
+import org.pac4j.oauth.config.OAuth20Configuration
 
 /**
  * Demonstrates OAUTH Security 
@@ -28,13 +29,20 @@ public class CrafterOAuth {
      */
     public doSecurityFilter(request, response, session, filterChain) {
 
-        Config config = Config.INSTANCE
+  new Config()
 
         String clients = "AnonymousClient"
         String authorizers = "mustBeAnon"
         String matchers = "excludedPath"
         Boolean multiProfile = false
 
+        Config config = OAuth20Configuration()
+               config.setKey("A_KEY") {
+               config.getSecret("A_SECRET")
+        
+        //new Config("http://localhost:8080", "", final Map<String, Authorizer> authorizers)
+ 
+ 
         final SessionStore<JEEContext> bestSessionStore = FindBest.sessionStore(null, config, JEESessionStore.INSTANCE)
         final HttpActionAdapter<Object, JEEContext> bestAdapter = FindBest.httpActionAdapter(null, config, JEEHttpActionAdapter.INSTANCE)
         final SecurityLogic<Object, JEEContext> bestLogic = FindBest.securityLogic(null, config, DefaultSecurityLogic.INSTANCE)
