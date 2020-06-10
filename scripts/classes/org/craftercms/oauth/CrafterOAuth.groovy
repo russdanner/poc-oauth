@@ -32,43 +32,16 @@ public class CrafterOAuth {
         String matchers = ""
         Boolean multiProfile = false
 
-
-        final SessionStore<JEEContext> bestSessionStore = FindBest.sessionStore(null, config, JEESessionStore.INSTANCE);
-        final HttpActionAdapter<Object, JEEContext> bestAdapter = FindBest.httpActionAdapter(null, config, JEEHttpActionAdapter.INSTANCE);
-        final SecurityLogic<Object, JEEContext> bestLogic = FindBest.securityLogic(null, config, DefaultSecurityLogic.INSTANCE);
+        final SessionStore<JEEContext> bestSessionStore = FindBest.sessionStore(null, config, JEESessionStore.INSTANCE)
+        final HttpActionAdapter<Object, JEEContext> bestAdapter = FindBest.httpActionAdapter(null, config, JEEHttpActionAdapter.INSTANCE)
+        final SecurityLogic<Object, JEEContext> bestLogic = FindBest.securityLogic(null, config, DefaultSecurityLogic.INSTANCE)
         
-        // wrap the request so it's pac4j aware
-        //new Pac4JHttpServletRequestWrapper(request, profiles)
+        final JEEContext context = new JEEContext(request, response, bestSessionStore)
         
-        
-        filterChain.doFilter(request, response)
-        
-        
-
-//     FacebookClient facebookClient = new FacebookClient(FB_KEY, FB_SECRET);
-// TwitterClient twitterClient = new TwitterClient(TW_KEY, TW_SECRET);
-// FormClient formClient = new FormClient("http://localhost:8080/theForm.jsp", new SimpleTestUsernamePasswordAuthenticator(), new UsernameProfileCreator());
-// CasClient casClient = new CasClient();
-// casClient.setCasLoginUrl("http://mycasserver/login");
-// Clients clients = new Clients("http://localhost:8080/callback", facebookClient, twitterClient, formClient, casClient);
-// Config config = new Config(clients);
-// config.addAuthorizer("admin", new RequireAnyRoleAuthorizer("ROLE_ADMIN"));
-
-        
-       // final Config config = getSharedConfig();
-
-       // final SessionStore<JEEContext> bestSessionStore = FindBest.sessionStore(null, config, JEESessionStore.INSTANCE);
-        // final HttpActionAdapter<Object, JEEContext> bestAdapter = FindBest.httpActionAdapter(null, config, JEEHttpActionAdapter.INSTANCE);
-        // final SecurityLogic<Object, JEEContext> bestLogic = FindBest.securityLogic(securityLogic, config, DefaultSecurityLogic.INSTANCE);
-
-        // final JEEContext context = new JEEContext(request, response, bestSessionStore);
-        // bestLogic.perform(context, config, (ctx, profiles, parameters) -> {
-        //     // if no profiles are loaded, pac4j is not concerned with this request
-        //     filterChain.doFilter(profiles.isEmpty() ? request : , response);
-        //     return null;
-        // }, bestAdapter, clients, authorizers, matchers, multiProfile);
-//    }
-    
+        bestLogic.perform(context, config, (ctx, profiles, parameters) -> {
+                filterChain.doFilter(request, response)
+            }, bestAdapter, clients, authorizers, matchers, multiProfile);
+        }
     }
 
     /**
