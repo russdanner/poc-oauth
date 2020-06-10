@@ -41,9 +41,9 @@ public class CrafterOAuth {
         def authorizerMap = [:]
         Config config = new Config("http://localhost:8080", authorizerMap)
  
-/* 
+ 
         final SessionStore<JEEContext> bestSessionStore = FindBest.sessionStore(null, config, JEESessionStore.INSTANCE)
-        final HttpActionAdapter<Object, JEEContext> bestAdapter = FindBest.httpActionAdapter(null, config, JEEHttpActionAdapter.INSTANCE)
+/*        final HttpActionAdapter<Object, JEEContext> bestAdapter = FindBest.httpActionAdapter(null, config, JEEHttpActionAdapter.INSTANCE)
         final SecurityLogic<Object, JEEContext> bestLogic = FindBest.securityLogic(null, config, DefaultSecurityLogic.INSTANCE)
 
         final JEEContext context = new JEEContext(request, response, bestSessionStore)
