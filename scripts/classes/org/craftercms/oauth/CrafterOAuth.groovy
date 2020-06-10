@@ -45,7 +45,9 @@ public class CrafterOAuth {
             
             public Object adapt(org.pac4j.core.context.WebContext webContext, java.util.Collection appProfiles, Object[] parameters)
             throws Exception {
+                
                 filterChain.doFilter(new Pac4JHttpServletRequestWrapper(request, profiles), response)
+                
                 return null;
             }
         }
