@@ -38,10 +38,7 @@ public class CrafterOAuth {
         
         final JEEContext context = new JEEContext(request, response, bestSessionStore)
         
-        bestLogic.perform(context, config, 
-            { ctx, profiles, parameters -> 
-                filterChain.doFilter(request, response)
-            }, bestAdapter, clients, authorizers, matchers, multiProfile)
+        bestLogic.perform(context, config, { ctx, profiles, parameters -> filterChain.doFilter(request, response) }, bestAdapter, clients, authorizers, matchers, multiProfile)
         }
     }
 
