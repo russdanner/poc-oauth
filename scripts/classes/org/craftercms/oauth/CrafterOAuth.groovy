@@ -34,10 +34,6 @@ public class CrafterOAuth {
         String matchers = "excludedPath"
         Boolean multiProfile = false
 
-        //Config config = new OAuth20Configuration()
-        //       config.setKey("A_KEY") 
-        //       config.getSecret("A_SECRET")
-        
         def authorizerMap = [:]
         Config config = new Config("http://localhost:8080", authorizerMap)
  
