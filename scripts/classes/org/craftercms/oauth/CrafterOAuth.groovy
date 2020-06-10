@@ -4,7 +4,6 @@ package org.craftercms.oauth
 @Grab(group='org.pac4j', module='pac4j-oauth', version='4.0.2')
 @Grab(group='org.pac4j', module='j2e-pac4j', version='4.1.0')
 
-
 import org.pac4j.core.config.Config
 import org.pac4j.core.context.JEEContext
 import org.pac4j.core.context.session.JEESessionStore
