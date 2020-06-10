@@ -31,8 +31,8 @@ public class CrafterOAuth {
         Config config = Config.INSTANCE
 
         String clients = "AnonymousClient"
-        String authorizers = ""
-        String matchers = ""
+        String authorizers = "mustBeAnon"
+        String matchers = "excludedPath"
         Boolean multiProfile = false
 
         final SessionStore<JEEContext> bestSessionStore = FindBest.sessionStore(null, config, JEESessionStore.INSTANCE)
