@@ -31,7 +31,7 @@ public class CrafterOAuth {
 
         String clients = "AnonymousClient"
         String authorizers = "mustBeAnon"
-        String matchers = "excludedPath"
+        String matchers = ""//"excludedPath"
         Boolean multiProfile = false
 
         def authorizerMap = [:]
