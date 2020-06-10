@@ -30,7 +30,7 @@ public class CrafterOAuth {
 
         Config config = Config.INSTANCE
 
-        String clients = ""
+        String clients = "AnonymousClient"
         String authorizers = ""
         String matchers = ""
         Boolean multiProfile = false
