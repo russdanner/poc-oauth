@@ -12,6 +12,7 @@ import org.pac4j.core.engine.SecurityLogic
 import org.pac4j.core.http.adapter.HttpActionAdapter
 import org.pac4j.core.http.adapter.JEEHttpActionAdapter
 import org.pac4j.core.util.FindBest
+import org.pac4j.core.engine.SecurityGrantedAccessAdapter
 
 /**
  * Demonstrates OAUTH Security 
@@ -35,11 +36,19 @@ public class CrafterOAuth {
         final SessionStore<JEEContext> bestSessionStore = FindBest.sessionStore(null, config, JEESessionStore.INSTANCE)
         final HttpActionAdapter<Object, JEEContext> bestAdapter = FindBest.httpActionAdapter(null, config, JEEHttpActionAdapter.INSTANCE)
         final SecurityLogic<Object, JEEContext> bestLogic = FindBest.securityLogic(null, config, DefaultSecurityLogic.INSTANCE)
-        
+
         final JEEContext context = new JEEContext(request, response, bestSessionStore)
-        
-        bestLogic.perform(context, config, { ctx, profiles, parameters -> filterChain.doFilter(request, response) }, bestAdapter, clients, authorizers, matchers, multiProfile)
+
+        // perform(C context, Config config, SecurityGrantedAccessAdapter<R,C> securityGrantedAccessAdapter, HttpActionAdapter<R,C> httpActionAdapter, String clients, String authorizers, String matchers, Boolean inputMultiProfile, Object... parameters)
+        def securityGrantedAccessAdapter = new SecurityGrantedAccessAdapter() {
+            def adapt(context, profiles, Object... parameters)  throws Exception {
+                //filterChain.doFilter(profiles.isEmpty() ? request : new Pac4JHttpServletRequestWrapper(request, profiles), response);
+                filterChain.doFilter(new Pac4JHttpServletRequestWrapper(request, profiles), response)
+                return null;
+            }
         }
+        
+        bestLogic.perform(context, config, securityGrantedAccessAdapter, bestAdapter, clients, authorizers, matchers, multiProfile)
     }
 
     /**
