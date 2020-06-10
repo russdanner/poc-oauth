@@ -40,7 +40,7 @@ public class CrafterOAuth {
         
         //new Config("http://localhost:8080", "", final Map<String, Authorizer> authorizers)
  
- 
+/* 
         final SessionStore<JEEContext> bestSessionStore = FindBest.sessionStore(null, config, JEESessionStore.INSTANCE)
         final HttpActionAdapter<Object, JEEContext> bestAdapter = FindBest.httpActionAdapter(null, config, JEEHttpActionAdapter.INSTANCE)
         final SecurityLogic<Object, JEEContext> bestLogic = FindBest.securityLogic(null, config, DefaultSecurityLogic.INSTANCE)
@@ -59,6 +59,7 @@ public class CrafterOAuth {
         }
         
         bestLogic.perform(context, config, securityGrantedAccessAdapter, bestAdapter, clients, authorizers, matchers, multiProfile)
+*/
     }
 
     /**
