@@ -44,7 +44,7 @@ public class CrafterOAuth {
  
         final SessionStore<JEEContext> bestSessionStore = FindBest.sessionStore(null, config, JEESessionStore.INSTANCE)
         final HttpActionAdapter<Object, JEEContext> bestAdapter = FindBest.httpActionAdapter(null, config, JEEHttpActionAdapter.INSTANCE)
-/*        final SecurityLogic<Object, JEEContext> bestLogic = FindBest.securityLogic(null, config, DefaultSecurityLogic.INSTANCE)
+        final SecurityLogic<Object, JEEContext> bestLogic = FindBest.securityLogic(null, config, DefaultSecurityLogic.INSTANCE)
 
         final JEEContext context = new JEEContext(request, response, bestSessionStore)
 
@@ -60,9 +60,9 @@ public class CrafterOAuth {
         }
         
         bestLogic.perform(context, config, securityGrantedAccessAdapter, bestAdapter, clients, authorizers, matchers, multiProfile)
-*/
 
-        filterChain.doFilter(request, response)
+
+//        filterChain.doFilter(request, response)
     }
 
     /**
