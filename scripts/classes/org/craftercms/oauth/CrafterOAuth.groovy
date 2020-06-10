@@ -60,6 +60,8 @@ public class CrafterOAuth {
         
         bestLogic.perform(context, config, securityGrantedAccessAdapter, bestAdapter, clients, authorizers, matchers, multiProfile)
 */
+
+        filterChain.doFilter(request, response)
     }
 
     /**
