@@ -14,7 +14,7 @@ import org.pac4j.core.http.adapter.HttpActionAdapter
 import org.pac4j.core.http.adapter.JEEHttpActionAdapter
 import org.pac4j.core.util.FindBest
 import org.pac4j.core.engine.SecurityGrantedAccessAdapter
-import org.pac4j.jee.util.Pac4JHttpServletRequestWrapper
+import org.pac4j.j2e.util.Pac4JHttpServletRequestWrapper
 
 /**
  * Demonstrates OAUTH Security 
