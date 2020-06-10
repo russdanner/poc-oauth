@@ -29,8 +29,6 @@ public class CrafterOAuth {
      */
     public doSecurityFilter(request, response, session, filterChain) {
 
-  new Config()
-
         String clients = "AnonymousClient"
         String authorizers = "mustBeAnon"
         String matchers = "excludedPath"
