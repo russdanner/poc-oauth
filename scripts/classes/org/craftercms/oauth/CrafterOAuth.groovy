@@ -34,11 +34,12 @@ public class CrafterOAuth {
         String matchers = "excludedPath"
         Boolean multiProfile = false
 
-        Config config = new OAuth20Configuration()
-               config.setKey("A_KEY") 
-               config.getSecret("A_SECRET")
+        //Config config = new OAuth20Configuration()
+        //       config.setKey("A_KEY") 
+        //       config.getSecret("A_SECRET")
         
-        //new Config("http://localhost:8080", "", final Map<String, Authorizer> authorizers)
+        def authorizerMap = [:]
+        Config config = new Config("http://localhost:8080", authorizerMap)
  
 /* 
         final SessionStore<JEEContext> bestSessionStore = FindBest.sessionStore(null, config, JEESessionStore.INSTANCE)
